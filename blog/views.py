@@ -1,13 +1,13 @@
 
 from django.shortcuts import render, redirect
 from .models import Postagem
-from .forms import PostagemForm
+from .forms import FormularioPostagem
 
 def home(request):
     postagens = Postagem.objects.all()
     data = {}
     data['postagens'] = postagens
-    return render(request, 'blog/home.html', data)
+    return render(request, 'blog/home.html', data) # ok
 
 def create(request):    
     form = FormularioPostagem(request.Post or None)
@@ -18,13 +18,13 @@ def create(request):
         form.save()
         return redirect('home')
 
-    return render(request, 'blog/create.html', data)    
+    return render(request, 'blog/create.html', data) # ok   
 
 def leitura_postagem(request, pk):
     postagem = Postagem.objects.get(pk=pk)
     data = {}
     data['postagem'] = postagem
-    return render(request, 'blog/postagem.html', data)  
+    return render(request, 'blog/postagem.html', data) # ok
 
 def update(request, pk):
     postagem = Postagem.objects.get(pk=pk)   
@@ -37,10 +37,10 @@ def update(request, pk):
         form.save()
         return redirect('home')
 
-    return render(request, 'blog/update.html', data)    
+    return render(request, 'blog/update.html', data) # ok  
 
 def delete(request, pk):
     postagem = Postagem.objects.get(pk=pk)  
     postagem.delete()
 
-    return redirect()
+    return redirect('home') # ok

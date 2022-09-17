@@ -1,5 +1,5 @@
 <!DOCTYPE html>
-<html lang="pt-br">
+<html lang="ept-br">
 <head>
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
@@ -7,6 +7,15 @@
     <title>Create</title>
 </head>
 <body>
-    
+    <h1>Cadastre aqui o seu artigo</h1>
+    <br>
+    <form method="post">
+
+        {% csrf_token %}
+        {{ form.as_p }}
+        
+        <input type="submit" value="Save">
+        <br><form action="{% url 'home' %}"><input type="submit" value="Back to home" /></form>
+    </form>
 </body>
 </html>
