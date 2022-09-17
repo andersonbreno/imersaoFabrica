@@ -5,6 +5,6 @@ class FormularioPostagem(ModelForm):
 
     class Meta:
         model = Postagem
-        fields = ['titulo', 'conteudo']
+        fields = ['titulo','sobre', 'conteudo', 'categoria', 'observacoes', 'email']
 
         # trazer os atributos/tabelas do models para cá

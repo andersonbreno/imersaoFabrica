@@ -4,14 +4,24 @@
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="style.css">
     <title>Home</title>
 </head>
 <body>
-    <h1>Página Principal</h1>
+    <header class="cabecalho">
+        <h1>Página Principal</h1>
+    </header>
     <br>
     <ul>
         {% for postagem in postagens %}
-            <li><a href="{% url 'leitura_postagem' postagem.id %}">{{ postagem.titulo}}</a> -- {{ postagem.data_publicacao}}</li>
+            <li><a href="{% url 'leitura_postagem' postagem.id %}">
+            {{postagem.titulo}}
+            {{postagem.sobre}}
+            {{postagem.conteudo}}
+            {{postagem.categoria}}
+            {{postagem.observacoes}}
+            {{postagem.contato}}
+            </a> -- {{ postagem.data_publicacao}}</li>
 
         {% endfor %}
     </ul>
